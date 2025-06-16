@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Windows Machine": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": false
+    },
+    "Profile 1": {
+      "commandName": "Executable",
+      "executablePath": "C:\\Users\\riley\\source\\repos\\Agario\\ClientGUI\\MainPage.xaml.cs"
+    }
+  }
+}

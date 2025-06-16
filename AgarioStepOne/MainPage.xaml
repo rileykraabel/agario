@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AgarioStepOne.MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <Label
+                Text="Circle Center (vector2)"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="Direction (vector2)"
+                HorizontalOptions="Center" />
+
+            <Label
+                Text="FPS"
+                HorizontalOptions="Center"/>
+
+            <GraphicsView 
+                x:Name="PlaySurface"
+                VerticalOptions="Center"
+                BackgroundColor="Blue"
+                HeightRequest="800"
+                WidthRequest="800" />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>

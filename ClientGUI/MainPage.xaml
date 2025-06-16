@@ -1,0 +1,335 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ClientGUI.MainPage">
+
+    <VerticalStackLayout
+        Spacing="20">
+
+        <!--- GUI for the connection page; starts out enabled -->
+        <ScrollView
+            x:Name="ConnectionScreen"
+            IsVisible="True"
+            Margin="20"
+            HeightRequest="700">
+
+            <VerticalStackLayout
+                Spacing="50" 
+                Padding="20"
+                VerticalOptions="Center"
+                BackgroundColor="LightGreen">
+
+                <HorizontalStackLayout
+                    Spacing="50"
+                    Padding="20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center">
+
+                    <!-- vertical stack to hold the entries in one line down the middle -->
+                    <VerticalStackLayout
+                        Spacing="40"
+                        Padding="10"
+                        VerticalOptions="Center">
+
+                        <Label
+                            x:Name="ClassName"
+                            Text="University of Utah CS3500 - Agario Client"
+                            FontSize="28"
+                            FontFamily=""
+                    
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"/>
+
+                        <Label
+                            x:Name="Note"
+                            Text="Note: Game is optimized for playing in full-screen mode!"
+                            TextColor="Darkgreen"
+                            FontAttributes="Bold"
+                    
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center" />
+
+                        <!-- holds the server name/address fields as one line -->
+                        <HorizontalStackLayout
+                            Spacing="20"
+                            Padding="20"
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"
+                            BackgroundColor="LightGreen">
+
+                            <Label
+                                Text="Enter Server Name/Address"
+                                FontSize="15"
+                    
+                                VerticalOptions="Center"
+                                HorizontalOptions="Center"/>
+
+                            <Entry
+                                x:Name="NameOrAddressEntry"
+                                BackgroundColor="White"
+                                HorizontalOptions="End"
+                    
+                                HeightRequest="25"
+                                WidthRequest="200"
+                    
+                                TextColor="LightGreen"
+                                FontAttributes="Bold"
+                                HorizontalTextAlignment="Center" />
+
+                        </HorizontalStackLayout>
+
+                        <!--- holds the client name field as one line -->
+                        <HorizontalStackLayout
+                        Spacing="20"
+                        Padding="20"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        BackgroundColor="LightGreen" >
+
+                            <Label
+                            Text="Enter Your Name"
+                            FontSize="15"
+                            
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+
+                            <Entry
+                            x:Name="NameEntry"
+                            BackgroundColor="White"
+                            HorizontalOptions="End"
+                    
+                            HeightRequest="25"
+                            WidthRequest="200"
+                    
+                            TextColor="LightGreen"
+                            FontAttributes="Bold"
+                            HorizontalTextAlignment="Center" />
+
+                        </HorizontalStackLayout>
+
+                        <Button
+                        x:Name="ConnectToServerBtn"
+                        BackgroundColor="White"
+                
+                        Text="Connect To Server"
+                        FontAttributes="Bold"
+                        TextColor="LightGreen"
+                
+                        SemanticProperties.Hint="Connects to the server"
+                        Clicked="OnConnectClicked"
+                        HorizontalOptions="Center" />
+
+                    </VerticalStackLayout>
+
+                    <Image
+                        Source="game_guy.png"
+                        HeightRequest="200"
+                        HorizontalOptions="Center" />
+
+                </HorizontalStackLayout>
+
+                <!-- if there is any error, edit the ErrorField's text to display on the screen -->
+                <Label
+                    x:Name="ErrorField"
+                    Text=""
+                    TextColor="DarkGreen"
+                    
+                    FontSize="15"
+                    FontAttributes="Bold"
+                    
+                    HorizontalOptions="Center"
+                    VerticalOptions="Center" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+        <!-- this starts out disabled until connection occurs; then switches to this page -->
+        <ScrollView
+            x:Name="GameScreen"
+            IsVisible="False"
+            Margin="20"
+            HeightRequest="700">
+
+            <VerticalStackLayout
+                Spacing="20"
+                VerticalOptions="Center"
+                BackgroundColor="White">
+
+                <VerticalStackLayout
+                    Spacing="20"
+                    Padding="20"
+                    VerticalOptions="Center"
+                    BackgroundColor="LightPink">
+
+                    <Label
+                        x:Name="ClassName2"
+                        Text="University of Utah CS3500 - Agario Client"
+                        FontSize="28"
+                        FontFamily=""
+                    
+                        HorizontalOptions="Center"
+                        VerticalOptions="Center"/>
+
+                    <HorizontalStackLayout
+                        Spacing="20"
+                        VerticalOptions="Center" 
+                        HorizontalOptions="Center" >
+
+                        <Entry
+                            x:Name="Split"
+                            TextColor="LightPink"
+                            
+                            IsVisible="True"
+                                                    
+                            HorizontalOptions="Center"
+                            VerticalOptions="Center"
+                            TextChanged="OnSplit" />
+
+                    </HorizontalStackLayout>
+
+                </VerticalStackLayout>
+
+                <Label
+                    x:Name="Note2"
+                    Text="Note: Game is optimized for playing in full-screen mode!"
+                    TextColor="DeepPink"
+                    FontAttributes="Bold"
+                    
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+                <HorizontalStackLayout
+                    Spacing="50"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" >
+
+                    <VerticalStackLayout
+                        Spacing="20"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" >
+
+                        <Label
+                            x:Name="playerCount"
+                            TextColor="LightPink"
+                            FontAttributes="Bold"
+                    
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            x:Name="foodCount"
+                            TextColor="LightPink"
+                            FontAttributes="Bold"
+                            
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center"/>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout
+                        Spacing="20"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" >
+
+                        <Label
+                            x:Name="coordinates"
+                            TextColor="LightPink" 
+                            FontAttributes="Bold"
+                    
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center" />
+
+                        <Label
+                            x:Name="mass"
+                            TextColor="LightPink"
+                            FontAttributes="Bold"
+                    
+                            VerticalOptions="Center"
+                            HorizontalOptions="Center" />
+                    </VerticalStackLayout>
+
+                    <Label
+                        x:Name="Leaderboard"
+                        TextColor="DeepPink"
+                        FontAttributes="Bold"
+                        
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+
+                </HorizontalStackLayout>
+
+                <GraphicsView
+                    x:Name="PlaySurface"
+                    VerticalOptions="Start"
+                    HorizontalOptions="CenterAndExpand"
+                    IsVisible="True"
+                
+                    HeightRequest="500"
+                    WidthRequest="1000" >
+
+                    <GraphicsView.GestureRecognizers>
+                        <PointerGestureRecognizer   PointerMoved="PointerChanged" />
+                    </GraphicsView.GestureRecognizers>
+                </GraphicsView>
+
+                <VerticalStackLayout
+                    Spacing="20"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" >
+
+                    <Button
+                        x:Name="GameOver"
+                        Text="Oops! You have died."
+                        FontSize="32"
+                        TextColor="LightGreen"
+                        FontAttributes="Bold"
+                                            
+                        IsVisible="False"
+                        IsEnabled="False"
+                    
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+
+                    <Button
+                        x:Name="PlayAgain"
+                        Text="Play Again"
+                        TextColor="DeepPink"
+                        FontAttributes="Bold"
+                        
+                        IsVisible="False"
+                        Clicked="OnPlayClicked"
+                        
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+
+                    <Button
+                        x:Name="EndGame"
+                        Text="End Game"
+                        TextColor="DeepPink"
+                        FontAttributes="Bold"
+                        
+                        IsVisible="False"
+                        Clicked="OnEndClicked"
+                    
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" />
+                </VerticalStackLayout>
+
+                <Label
+                    x:Name="gameErrors"
+                    Text="Once at 1000 mass, press space to split!"
+                    TextColor="DeepPink"
+                    
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+                <Label
+                    x:Name="whitespace"
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+        </ScrollView>
+
+    </VerticalStackLayout>
+
+</ContentPage>
